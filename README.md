@@ -1,64 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Life Assistant</title>
+</head>
+<body>
+  <h1>Smart Life Assistant</h1>
+  <p>Follow the prompts to complete all 4 tasks.</p>
 
-# Smart Life Assistant
+<script>
+let age = parseInt(prompt("Enter your age:"));
+let weight = parseFloat(prompt("Enter your weight (in kg):"));
 
-## 📌 Project Overview
-Smart Life Assistant is a JavaScript-based console/prompt application that performs 4 useful daily life tasks using **conditional statements**, **range-based logic**, and **string comparisons**.
+let idealWeightMin, idealWeightMax;
+if (age >= 18 && age <= 25) {
+  idealWeightMin = 50; idealWeightMax = 70;
+} else if (age > 25 && age <= 40) {
+  idealWeightMin = 55; idealWeightMax = 75;
+} else if (age > 40 && age <= 60) {
+  idealWeightMin = 60; idealWeightMax = 80;
+} else {
+  idealWeightMin = 50; idealWeightMax = 75;
+}
 
----
+if (weight >= idealWeightMin && weight <= idealWeightMax) {
+  alert("You are fit for your age.");
+} else if (weight < idealWeightMin) {
+  alert("You are underweight for your age. Consider a healthy diet.");
+} else {
+  alert("You are overweight for your age. Consider regular exercise.");
+}
 
-## 🧩 Tasks
+let income = parseFloat(prompt("Enter your monthly income (₹):"));
 
-### 1. 🏃‍♂️ Fitness Suggestion System
-- **Input:** Age, Weight
-- **Logic:** Checks if weight is within an ideal range for the age group and gives suggestions.
-- **Example Output:**  
-  `You are underweight for your age. Consider a healthy diet.`
+if (income < 10000) {
+  alert("Spend cautiously and save more!");
+} else if (income >= 10000 && income <= 30000) {
+  alert("Balanced budget!");
+} else {
+  alert("Your income is great! Consider investing in SIPs.");
+}
 
----
+let dataUsage = parseFloat(prompt("Enter total mobile data used this month (in GB):"));
 
-### 2. 💸 Monthly Budget Planner
-- **Input:** Monthly income
-- **Logic:**  
-  - `< ₹10,000` → Spend cautiously and save more.  
-  - `₹10,000 – ₹30,000` → Balanced budget.  
-  - `> ₹30,000` → Consider investing.
-- **Example Output:**  
-  `Your income is great! Consider investing in SIPs.`
+if (dataUsage < 5) {
+  alert("Low usage");
+} else if (dataUsage >= 5 && dataUsage <= 15) {
+  alert("Normal usage");
+} else {
+  alert("You are a heavy data user. Upgrade your plan.");
+}
 
----
+const oldPasswordStored = "admin123";
 
-### 3. 📱 Mobile Data Usage Alert System
-- **Input:** Data usage in GB
-- **Logic:**  
-  - `< 5GB` → Low usage  
-  - `5–15GB` → Normal usage  
-  - `> 15GB` → Heavy usage
-- **Example Output:**  
-  `You are a heavy data user. Upgrade your plan.`
-
----
-
-### 4. 🔐 Change Password Logic
-- **Input:** Old password, New password, Confirm password
-- **Logic:** Checks if old password is correct, verifies new password matches confirmation.
-- **Example Output:**  
-  `Password changed successfully.` or `Passwords do not match.`
-
----
-
-## 📸 Output Screenshots
-Screenshots for each task are saved in the `screenshots/` folder.
-
----
-
-## 🚀 How to Run
-1. Open `index.html` in a browser.
-2. Follow the prompt instructions for each task.
-3. View alerts for results.
-
----
-
-## 🛠 Technologies Used
-- HTML
-- JavaScript
-- prompt() & alert() for user interaction
+let oldPassInput = prompt("Enter old password:");
+if (oldPassInput === oldPasswordStored) {
+  let newPass = prompt("Enter new password:");
+  let confirmPass = prompt("Confirm new password:");
+  
+  if (newPass === confirmPass) {
+    alert("Password changed successfully.");
+  } else {
+    alert("Passwords do not match.");
+  }
+} else {
+  alert("Old password is incorrect.");
+}
+</script>
+</body>
+</html>
